@@ -36,8 +36,8 @@
         {
             this.tab1 = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
-            this.ActiveAllMessages = this.Factory.CreateRibbonCheckBox();
-            this.ActiveThisMessage = this.Factory.CreateRibbonCheckBox();
+            this.ActiveAllMessages = this.Factory.CreateRibbonToggleButton();
+            this.ActiveThisMessage = this.Factory.CreateRibbonToggleButton();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
             // 
@@ -57,18 +57,20 @@
             // 
             // ActiveAllMessages
             // 
-            this.ActiveAllMessages.Label = "checkBox1";
+            this.ActiveAllMessages.Label = "Active -All Messages";
             this.ActiveAllMessages.Name = "ActiveAllMessages";
+            this.ActiveAllMessages.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ActiveAllMessages_Click);
             // 
             // ActiveThisMessage
             // 
-            this.ActiveThisMessage.Label = "checkBox1";
+            this.ActiveThisMessage.Label = "Active - This Message Only";
             this.ActiveThisMessage.Name = "ActiveThisMessage";
+            this.ActiveThisMessage.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ActiveThisMessage_Click);
             // 
             // WRTOffsiteTaglineAddInRibbon
             // 
             this.Name = "WRTOffsiteTaglineAddInRibbon";
-            this.RibbonType = "Microsoft.Outlook.Mail.Read";
+            this.RibbonType = "Microsoft.Outlook.Mail.Compose";
             this.Tabs.Add(this.tab1);
             this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.Ribbon1_Load);
             this.tab1.ResumeLayout(false);
@@ -82,8 +84,8 @@
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
-        internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox ActiveAllMessages;
-        internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox ActiveThisMessage;
+        internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton ActiveAllMessages;
+        internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton ActiveThisMessage;
     }
 
     partial class ThisRibbonCollection
