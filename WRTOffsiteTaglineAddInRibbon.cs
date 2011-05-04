@@ -32,6 +32,7 @@ namespace WRTOffsite_NET35
                 ActiveAllMessages.Label = "Active - All Messages";  // change the label
                 ActiveThisMessage.Visible = true;   // show the "This Message" button
                 ActiveThisMessage.Enabled = true;   // activate the "This Message" button
+                ActiveThisMessage.Checked = true;
             }
         }
 
@@ -52,6 +53,7 @@ namespace WRTOffsite_NET35
                     ActiveAllMessages.Label = "Active - All Messages";  // change the label
                     ActiveThisMessage.Visible = true;   // show the "This Message" button
                     ActiveThisMessage.Enabled = true;   // activate the "This Message" button
+                    ActiveThisMessage.Checked = true;
                     break;
                 case false:
                     taglineActive = "0";                // tagline is off for all messages
