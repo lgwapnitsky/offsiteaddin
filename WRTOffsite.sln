@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WRTOffsite_NET35", "WRTOffsite_NET35.csproj", "{B16F65F4-2227-4F7B-8B64-A355CCAA35A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WRTOffsite", "WRTOffsite.csproj", "{B16F65F4-2227-4F7B-8B64-A355CCAA35A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

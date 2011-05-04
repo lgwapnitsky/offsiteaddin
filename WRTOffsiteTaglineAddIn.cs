@@ -15,8 +15,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.IO;
 using System.Xml;
-using Microsoft.VisualStudio.Tools.Office.Runtime.Interop;
-
+//using Microsoft.VisualStudio.Tools.Office.Runtime.Interop;
 
 
 namespace WRTOffsite_NET35

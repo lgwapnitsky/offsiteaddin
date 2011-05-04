@@ -1,17 +1,23 @@
-﻿using System;
+﻿/* WRTOffsiteTaglineAddinRibbon.cs        */
+/* Created by Larry G. Wapnitsky    */
+/* August, 2010                     */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Office.Tools.Ribbon;
 using Outlook = Microsoft.Office.Interop.Outlook;
+using System.Windows.Forms;
+using Office = Microsoft.Office.Core;
 
 namespace WRTOffsite_NET35
 {
-    public partial class WRTOffsiteTaglineAddInRibbon
+    public partial class WRTOffsiteTaglineAddInRibbon_old
     {
         string taglineActive;
-        OLRegistryAddin buttonSet = new OLRegistryAddin();
-        UpdateBody msgBody = new UpdateBody();
+        OLRegistryAddin buttonSet = new OLRegistryAddin();  // variable for reading the value of the registry key
+        UpdateBody msgBody = new UpdateBody();  // method for adding/removing tagline from the message
 
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
         {
@@ -61,7 +67,7 @@ namespace WRTOffsite_NET35
                     ActiveThisMessage.Enabled = false;  // deactivate the "This Message" button
                     break;
             }
-            buttonSet.SetCurrentValue(taglineActive);
+            buttonSet.SetCurrentValue(taglineActive);  
 
             Tagline();
         }
@@ -82,6 +88,7 @@ namespace WRTOffsite_NET35
 
             Tagline();
         }
+
 
     }
 }

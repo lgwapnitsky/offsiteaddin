@@ -13,7 +13,7 @@ namespace WRTOffsite_NET35
     class OLRegistryAddin
     {
         RegistryKey olAddinKey = Registry.CurrentUser;
-        string OLAddinSubKey = "Software\\WRT\\OutlookAddins";
+        string OLAddinSubKey = @"Software\WRT\OutlookAddins\Offsite";
         string OLAddinValue = "OffsiteActive";
 
         public void RegCheckExists()  // Check to see if the registry key exists.  If not, create it and set as active
@@ -29,7 +29,7 @@ namespace WRTOffsite_NET35
         public string RegCurrentValue()  // Retrieve the current value from the registry key
         {
             olAddinKey = olAddinKey.OpenSubKey(OLAddinSubKey, true);
-            string currentValue = olAddinKey.GetValue(OLAddinValue).ToString();
+            string currentValue = olAddinKey.GetValue(OLAddinValue).ToString() as string;
 
             return currentValue;
         }

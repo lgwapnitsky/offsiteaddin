@@ -100,7 +100,6 @@ namespace WRTOffsite_NET35
                 SigDoc.Hyperlinks.Add(r, taglines[2]);
             }
             r.NoProofing = -1;  // disable spelling/grammar checking on the updated range
-
             r.Collapse(collapseEnd);
         }
 

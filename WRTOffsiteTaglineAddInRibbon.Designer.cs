@@ -1,6 +1,6 @@
 ﻿namespace WRTOffsite_NET35
 {
-    partial class WRTOffsiteTaglineAddInRibbon : Microsoft.Office.Tools.Ribbon.OfficeRibbon
+    partial class WRTOffsiteTaglineAddInRibbon : Microsoft.Office.Tools.Ribbon.RibbonBase
     {
         /// <summary>
         /// Required designer variable.
@@ -8,6 +8,7 @@
         private System.ComponentModel.IContainer components = null;
 
         public WRTOffsiteTaglineAddInRibbon()
+            : base(Globals.Factory.GetRibbonFactory())
         {
             InitializeComponent();
         }
@@ -33,64 +34,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tab1 = new Microsoft.Office.Tools.Ribbon.RibbonTab();
-            this.WRTOffsiteTagline = new Microsoft.Office.Tools.Ribbon.RibbonGroup();
-            this.ActiveAllMessages = new Microsoft.Office.Tools.Ribbon.RibbonToggleButton();
-            this.ActiveThisMessage = new Microsoft.Office.Tools.Ribbon.RibbonToggleButton();
+            this.tab1 = this.Factory.CreateRibbonTab();
+            this.group1 = this.Factory.CreateRibbonGroup();
+            this.ActiveAllMessages = this.Factory.CreateRibbonCheckBox();
+            this.ActiveThisMessage = this.Factory.CreateRibbonCheckBox();
             this.tab1.SuspendLayout();
-            this.WRTOffsiteTagline.SuspendLayout();
-            this.SuspendLayout();
+            this.group1.SuspendLayout();
             // 
             // tab1
             // 
             this.tab1.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
-            this.tab1.Groups.Add(this.WRTOffsiteTagline);
+            this.tab1.Groups.Add(this.group1);
             this.tab1.Label = "TabAddIns";
             this.tab1.Name = "tab1";
             // 
-            // WRTOffsiteTagline
+            // group1
             // 
-            this.WRTOffsiteTagline.Items.Add(this.ActiveAllMessages);
-            this.WRTOffsiteTagline.Items.Add(this.ActiveThisMessage);
-            this.WRTOffsiteTagline.Label = "WRT Offsite Tagline";
-            this.WRTOffsiteTagline.Name = "WRTOffsiteTagline";
+            this.group1.Items.Add(this.ActiveAllMessages);
+            this.group1.Items.Add(this.ActiveThisMessage);
+            this.group1.Label = "group1";
+            this.group1.Name = "group1";
             // 
             // ActiveAllMessages
             // 
-            this.ActiveAllMessages.Label = "Inactive - All Messages";
+            this.ActiveAllMessages.Label = "checkBox1";
             this.ActiveAllMessages.Name = "ActiveAllMessages";
-            this.ActiveAllMessages.Click += new System.EventHandler<Microsoft.Office.Tools.Ribbon.RibbonControlEventArgs>(this.ActiveAllMessages_Click);
             // 
             // ActiveThisMessage
             // 
-            this.ActiveThisMessage.Checked = true;
-            this.ActiveThisMessage.Label = "Active - This Message";
+            this.ActiveThisMessage.Label = "checkBox1";
             this.ActiveThisMessage.Name = "ActiveThisMessage";
-            this.ActiveThisMessage.Click += new System.EventHandler<Microsoft.Office.Tools.Ribbon.RibbonControlEventArgs>(this.ActiveThisMessage_Click);
             // 
-            // Ribbon1
+            // WRTOffsiteTaglineAddInRibbon
             // 
-            this.Name = "Ribbon1";
-            this.RibbonType = "Microsoft.Outlook.Mail.Compose";
+            this.Name = "WRTOffsiteTaglineAddInRibbon";
+            this.RibbonType = "Microsoft.Outlook.Mail.Read";
             this.Tabs.Add(this.tab1);
-            this.Load += new System.EventHandler<Microsoft.Office.Tools.Ribbon.RibbonUIEventArgs>(this.Ribbon1_Load);
+            this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.Ribbon1_Load);
             this.tab1.ResumeLayout(false);
             this.tab1.PerformLayout();
-            this.WRTOffsiteTagline.ResumeLayout(false);
-            this.WRTOffsiteTagline.PerformLayout();
-            this.ResumeLayout(false);
+            this.group1.ResumeLayout(false);
+            this.group1.PerformLayout();
 
         }
 
         #endregion
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
-        internal Microsoft.Office.Tools.Ribbon.RibbonGroup WRTOffsiteTagline;
-        internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton ActiveAllMessages;
-        internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton ActiveThisMessage;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox ActiveAllMessages;
+        internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox ActiveThisMessage;
     }
 
-    partial class ThisRibbonCollection : Microsoft.Office.Tools.Ribbon.RibbonReadOnlyCollection
+    partial class ThisRibbonCollection
     {
         internal WRTOffsiteTaglineAddInRibbon Ribbon1
         {

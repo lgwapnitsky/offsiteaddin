@@ -15,7 +15,7 @@ namespace WRTOffsite_NET35 {
     /// 
     [Microsoft.VisualStudio.Tools.Applications.Runtime.StartupObjectAttribute(0)]
     [global::System.Security.Permissions.PermissionSetAttribute(global::System.Security.Permissions.SecurityAction.Demand, Name="FullTrust")]
-    public sealed partial class WRTOffsiteTaglineAddIn : Microsoft.Office.Tools.Outlook.OutlookAddIn, Microsoft.VisualStudio.Tools.Office.IOfficeEntryPoint {
+    public sealed partial class WRTOffsiteTaglineAddIn : Microsoft.Office.Tools.Outlook.OutlookAddInBase {
         
         internal Microsoft.Office.Tools.CustomTaskPaneCollection CustomTaskPanes;
         
@@ -28,8 +28,9 @@ namespace WRTOffsite_NET35 {
         /// 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public WRTOffsiteTaglineAddIn() : 
-                base("AddIn", "ThisAddIn") {
+        public WRTOffsiteTaglineAddIn(global::Microsoft.Office.Tools.Outlook.Factory factory, global::System.IServiceProvider serviceProvider) : 
+                base(factory, serviceProvider, "AddIn", "ThisAddIn") {
+            Globals.Factory = factory;
         }
         
         /// 
@@ -95,7 +96,6 @@ namespace WRTOffsite_NET35 {
         
         /// 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Tools.Office.ProgrammingModel.dll", "10.0.0.0")]
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         private void StartCaching(string MemberName) {
             this.DataHost.StartCaching(this, MemberName);
@@ -103,7 +103,6 @@ namespace WRTOffsite_NET35 {
         
         /// 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Tools.Office.ProgrammingModel.dll", "10.0.0.0")]
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         private void StopCaching(string MemberName) {
             this.DataHost.StopCaching(this, MemberName);
@@ -111,7 +110,6 @@ namespace WRTOffsite_NET35 {
         
         /// 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Tools.Office.ProgrammingModel.dll", "10.0.0.0")]
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         private bool IsCached(string MemberName) {
             return this.DataHost.IsCached(this, MemberName);
@@ -140,7 +138,7 @@ namespace WRTOffsite_NET35 {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Tools.Office.ProgrammingModel.dll", "10.0.0.0")]
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         private void InitializeControls() {
-            this.CustomTaskPanes = new Microsoft.Office.Tools.CustomTaskPaneCollection(this.ItemProvider, this.HostContext, "CustomTaskPanes", this, "CustomTaskPanes");
+            this.CustomTaskPanes = Globals.Factory.CreateCustomTaskPaneCollection(null, null, "CustomTaskPanes", "CustomTaskPanes", this);
         }
         
         /// 
@@ -152,7 +150,6 @@ namespace WRTOffsite_NET35 {
         
         /// 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Tools.Office.ProgrammingModel.dll", "10.0.0.0")]
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         private bool NeedsFill(string MemberName) {
             return this.DataHost.NeedsFill(this, MemberName);
@@ -179,6 +176,8 @@ namespace WRTOffsite_NET35 {
         
         private static WRTOffsiteTaglineAddIn _WRTOffsiteTaglineAddIn;
         
+        private static global::Microsoft.Office.Tools.Outlook.Factory _factory;
+        
         private static ThisRibbonCollection _ThisRibbonCollection;
         
         private static ThisFormRegionCollection _ThisFormRegionCollection;
@@ -197,10 +196,24 @@ namespace WRTOffsite_NET35 {
             }
         }
         
+        internal static global::Microsoft.Office.Tools.Outlook.Factory Factory {
+            get {
+                return _factory;
+            }
+            set {
+                if ((_factory == null)) {
+                    _factory = value;
+                }
+                else {
+                    throw new System.NotSupportedException();
+                }
+            }
+        }
+        
         internal static ThisRibbonCollection Ribbons {
             get {
                 if ((_ThisRibbonCollection == null)) {
-                    _ThisRibbonCollection = new ThisRibbonCollection();
+                    _ThisRibbonCollection = new ThisRibbonCollection(_factory.GetRibbonFactory());
                 }
                 return _ThisRibbonCollection;
             }
@@ -219,7 +232,12 @@ namespace WRTOffsite_NET35 {
     /// 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Tools.Office.ProgrammingModel.dll", "10.0.0.0")]
-    internal sealed partial class ThisRibbonCollection : Microsoft.Office.Tools.Ribbon.RibbonReadOnlyCollection {
+    internal sealed partial class ThisRibbonCollection : Microsoft.Office.Tools.Ribbon.RibbonCollectionBase {
+        
+        /// 
+        internal ThisRibbonCollection(global::Microsoft.Office.Tools.Ribbon.RibbonFactory factory) : 
+                base(factory) {
+        }
         
         internal ThisRibbonCollection this[Microsoft.Office.Interop.Outlook.Inspector inspector] {
             get {
@@ -236,7 +254,7 @@ namespace WRTOffsite_NET35 {
     
     /// 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    internal sealed partial class ThisFormRegionCollection : Microsoft.Office.Tools.Outlook.FormRegionReadOnlyCollection {
+    internal sealed partial class ThisFormRegionCollection : Microsoft.Office.Tools.Outlook.FormRegionCollectionBase {
         
         /// 
         public ThisFormRegionCollection(System.Collections.Generic.IList<Microsoft.Office.Tools.Outlook.IFormRegion> list) : 
@@ -245,19 +263,24 @@ namespace WRTOffsite_NET35 {
         
         internal WindowFormRegionCollection this[Microsoft.Office.Interop.Outlook.Explorer explorer] {
             get {
-                return Globals.WRTOffsiteTaglineAddIn.GetFormRegions<WindowFormRegionCollection>(explorer);
+                return ((WindowFormRegionCollection)(Globals.WRTOffsiteTaglineAddIn.GetFormRegions(explorer, typeof(WindowFormRegionCollection))));
             }
         }
         
         internal WindowFormRegionCollection this[Microsoft.Office.Interop.Outlook.Inspector inspector] {
             get {
-                return Globals.WRTOffsiteTaglineAddIn.GetFormRegions<WindowFormRegionCollection>(inspector);
+                return ((WindowFormRegionCollection)(Globals.WRTOffsiteTaglineAddIn.GetFormRegions(inspector, typeof(WindowFormRegionCollection))));
             }
         }
     }
     
     /// 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    internal sealed partial class WindowFormRegionCollection : Microsoft.Office.Tools.Outlook.FormRegionReadOnlyCollection {
+    internal sealed partial class WindowFormRegionCollection : Microsoft.Office.Tools.Outlook.FormRegionCollectionBase {
+        
+        /// 
+        public WindowFormRegionCollection(System.Collections.Generic.IList<Microsoft.Office.Tools.Outlook.IFormRegion> list) : 
+                base(list) {
+        }
     }
 }
