@@ -37,17 +37,17 @@
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
     <VSTO_TrustAssembliesLocation>true</VSTO_TrustAssembliesLocation>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
-    <PublishUrl>I:\OffsiteFooter\Offsite35OL2007_CSh\</PublishUrl>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
+    <PublishUrl>\\wrtdesign.com\fw-apps\apps\OutlookAddins_WRT\OffsiteFooter\</PublishUrl>
     <InstallUrl />
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>1.0.2.18</ApplicationVersion>
+    <ApplicationVersion>2.0.0.2</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
     <UpdateIntervalUnits>days</UpdateIntervalUnits>
     <ProductName>WRT Offsite Tagline</ProductName>
-    <PublisherName>WRT</PublisherName>
+    <PublisherName>Wallace Roberts &amp; Todd, LLC</PublisherName>
     <SupportUrl />
     <FriendlyName>WRT Offsite Tagline</FriendlyName>
     <OfficeApplicationDescription />
@@ -274,7 +274,7 @@
       <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
         <ProjectProperties HostName="Outlook" HostPackage="{20A848B8-E01F-4801-962E-25DB0FF57389}" OfficeVersion="14.0" VstxVersion="4.0" ApplicationType="Outlook" Language="cs" TemplatesPath="VSTOTemplates" DebugInfoExeName="#Software\Microsoft\Office\14.0\Outlook\InstallRoot\Path#outlook.exe" AddItemTemplatesGuid="{A58A78EB-1C92-4DDD-80CF-E8BD872ABFC4}" />
         <Host Name="Outlook" GeneratedCodeNamespace="WRTOffsite_NET35" PublishedHash="69C324AB27932AA2FBF2B7EA72250886FF164DE6" IconIndex="0">
-          <HostItem Name="ThisAddIn" Code="WRTOffsiteTaglineAddIn.cs" CanonicalName="AddIn" PublishedHash="57AE3D6216E92EFF4AC733B38C2F8847BEA94F39" CanActivate="false" IconIndex="1" Blueprint="WRTOffsiteTaglineAddIn.Designer.xml" GeneratedCode="WRTOffsiteTaglineAddIn.Designer.cs" />
+          <HostItem Name="ThisAddIn" Code="WRTOffsiteTaglineAddIn.cs" CanonicalName="AddIn" PublishedHash="EEC9CCC7D09B2D6867E17665EF9B647942035507" CanActivate="false" IconIndex="1" Blueprint="WRTOffsiteTaglineAddIn.Designer.xml" GeneratedCode="WRTOffsiteTaglineAddIn.Designer.cs" />
         </Host>
       </FlavorProperties>
     </VisualStudio>
