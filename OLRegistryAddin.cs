@@ -2,15 +2,11 @@
 /* Created by Larry G. Wapnitsky    */
 /* August, 2010                     */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Win32;
 
 namespace WRTOffsite_NET35
 {
-    class OLRegistryAddin
+    internal class OLRegistryAddin
     {
         RegistryKey olAddinKey = Registry.CurrentUser;
         string OLAddinSubKey = @"Software\WRT\OutlookAddins\Offsite";

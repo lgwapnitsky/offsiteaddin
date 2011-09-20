@@ -61,7 +61,6 @@ namespace WRTOffsite_NET35
         {
             Outlook.MailItem mi = inspector.CurrentItem as Outlook.MailItem;
 
-
             if ((mi != null) && (mi.Sent == false))  // activate the butttons on New, Reply and resumed Draft messages
             {
                 OLRegistryAddin buttonSet = new OLRegistryAddin();

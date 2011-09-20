@@ -3,11 +3,6 @@
 /* August, 2010                     */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.Net;
 using System.Xml;
 
 namespace GenerateArrayFromRSSXML
@@ -19,7 +14,7 @@ namespace GenerateArrayFromRSSXML
         string EnvTempDir = Environment.GetEnvironmentVariable("Temp");
         string OffsiteXMLFile = "offsite.xml";
         string LocalXMLFile;
-        
+
         public RSSItemArray()
         {
             XmlTextReader rssReader;

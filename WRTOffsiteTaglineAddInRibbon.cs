@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Office.Tools.Ribbon;
+﻿using Microsoft.Office.Tools.Ribbon;
 using Outlook = Microsoft.Office.Interop.Outlook;
 
 namespace WRTOffsite_NET35
@@ -84,6 +80,5 @@ namespace WRTOffsite_NET35
 
             Tagline();
         }
-
     }
 }

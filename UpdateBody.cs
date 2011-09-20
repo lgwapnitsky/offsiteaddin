@@ -3,18 +3,14 @@
 /* August, 2010                     */
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Drawing;
-using Outlook = Microsoft.Office.Interop.Outlook;
-using Office = Microsoft.Office.Core;
-using Word = Microsoft.Office.Interop.Word;
 using GenerateArrayFromRSSXML;
+using Outlook = Microsoft.Office.Interop.Outlook;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace WRTOffsite_NET35
 {
-    class UpdateBody
+    internal class UpdateBody
     {
         public void updateTask(Outlook.MailItem oMsg, string taglineActive)
         {
@@ -30,7 +26,7 @@ namespace WRTOffsite_NET35
             }
         }
 
-        void InsertOffsiteSig(Outlook.MailItem oMsg)
+        private void InsertOffsiteSig(Outlook.MailItem oMsg)
         {
             object oBookmarkName = "_MailAutoSig";  // Outlook internal bookmark for location of the e-mail signature
             string oOffsiteBookmark = "OffsiteBookmark";  // bookmark to be created in Outlook for the Offsite tagline
@@ -50,7 +46,6 @@ namespace WRTOffsite_NET35
 
             string[] taglines = GetRssItem();  // Get tagline information from the RSS XML file and place into an array
 
-            
             // Loop through the array and insert each line of text separated by a newline
 
             foreach (string taglineText in taglines)
@@ -69,10 +64,9 @@ namespace WRTOffsite_NET35
             }
 
             r.NoProofing = -1;  // turn off spelling/grammar check for this range of text
-            
+
             object range1 = r;
             SigDoc.Bookmarks.Add(oOffsiteBookmark, ref range1);  // define this range as our custom bookmark
-
 
             if (bf != "olFormatPlain" && bf != "olFormatUnspecified")
             {

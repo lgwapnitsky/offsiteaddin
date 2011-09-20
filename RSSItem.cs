@@ -2,13 +2,7 @@
 /* Created by Larry G. Wapnitsky    */
 /* August, 2010                     */
 
-
 // This is a class that defines the structure of an item from the RSS XML file
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace GenerateArrayFromRSSXML
 {
