@@ -41,7 +41,7 @@
     <PublishUrl>\\wrtdesign.com\fw-apps\apps\OutlookAddins_WRT\OffsiteTagline\</PublishUrl>
     <InstallUrl />
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>2011.09.15.1214</ApplicationVersion>
+    <ApplicationVersion>2011.09.20.1224</ApplicationVersion>
     <AutoIncrementApplicationRevision>false</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
