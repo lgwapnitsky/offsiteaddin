@@ -2,21 +2,12 @@
 /* Created by Larry G. Wapnitsky    */
 /* August, 2010                     */
 
-
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml.Linq;
-using Outlook = Microsoft.Office.Interop.Outlook;
-using Office = Microsoft.Office.Core;
-using Word = Microsoft.Office.Interop.Word;
-using System.Windows.Forms;
 using System.Net;
-using System.IO;
-using System.Xml;
-//using Microsoft.VisualStudio.Tools.Office.Runtime.Interop;
+using System.Windows.Forms;
+using Outlook = Microsoft.Office.Interop.Outlook;
 
+//using Microsoft.VisualStudio.Tools.Office.Runtime.Interop;
 
 namespace WRTOffsite_NET35
 {
@@ -27,14 +18,13 @@ namespace WRTOffsite_NET35
         string OffsiteXMLFile = "offsite.xml";
         string LocalXMLFile;
         string urlOffsiteRss = "http://www.wrtdesign.com/offsite/rss.xml";
-        
+
         // Create a new instance of class that checks for/creates/modifies registry entries
         OLRegistryAddin olRegCheck = new OLRegistryAddin();
-        
+
         // create inspectors to monitor Outlook window activity
         Outlook.Inspectors inspectors;
         Outlook.Inspector inspector;
-
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
@@ -60,7 +50,7 @@ namespace WRTOffsite_NET35
             }
         }
 
-        void Inspector_Close()
+        private void Inspector_Close()
         {
             ((Outlook.InspectorEvents_10_Event)inspector).Activate -= new Outlook.InspectorEvents_10_ActivateEventHandler(Inspector_Activate);
             ((Outlook.InspectorEvents_10_Event)inspector).Close -= new Outlook.InspectorEvents_10_CloseEventHandler(Inspector_Close);
@@ -70,16 +60,17 @@ namespace WRTOffsite_NET35
         public void Inspector_Activate()
         {
             Outlook.MailItem mi = inspector.CurrentItem as Outlook.MailItem;
-            
-            if (mi.Sent == false)  // activate the butttons on New, Reply and resumed Draft messages
+
+
+            if ((mi != null) && (mi.Sent == false))  // activate the butttons on New, Reply and resumed Draft messages
             {
                 OLRegistryAddin buttonSet = new OLRegistryAddin();
-                                
+
                 UpdateBody olMessage = new UpdateBody();
                 olMessage.RemoveOffsiteMessage(mi);
                 olMessage.updateTask(mi, buttonSet.RegCurrentValue());
             }
-            
+
             Inspector_Close();
         }
 
@@ -113,6 +104,6 @@ namespace WRTOffsite_NET35
             this.Shutdown += new System.EventHandler(ThisAddIn_Shutdown);
         }
 
-        #endregion
+        #endregion VSTO generated code
     }
 }

@@ -38,11 +38,11 @@
     <OldToolsVersion>4.0</OldToolsVersion>
     <VSTO_TrustAssembliesLocation>true</VSTO_TrustAssembliesLocation>
     <BootstrapperEnabled>false</BootstrapperEnabled>
-    <PublishUrl>\\wrtdesign.com\fw-apps\apps\OutlookAddins_WRT\OffsiteFooter\</PublishUrl>
+    <PublishUrl>\\wrtdesign.com\fw-apps\apps\OutlookAddins_WRT\OffsiteTagline\</PublishUrl>
     <InstallUrl />
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>2.0.0.2</ApplicationVersion>
-    <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
+    <ApplicationVersion>2011.09.15.1214</ApplicationVersion>
+    <AutoIncrementApplicationRevision>false</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>0</UpdateInterval>
     <UpdateIntervalUnits>days</UpdateIntervalUnits>

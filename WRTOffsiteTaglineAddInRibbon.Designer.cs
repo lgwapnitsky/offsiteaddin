@@ -34,26 +34,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tab1 = this.Factory.CreateRibbonTab();
-            this.group1 = this.Factory.CreateRibbonGroup();
+            this.tab_WRTOffsite = this.Factory.CreateRibbonTab();
+            this.grp_WRTOffsiteTagline = this.Factory.CreateRibbonGroup();
             this.ActiveAllMessages = this.Factory.CreateRibbonToggleButton();
             this.ActiveThisMessage = this.Factory.CreateRibbonToggleButton();
-            this.tab1.SuspendLayout();
-            this.group1.SuspendLayout();
+            this.tab_WRTOffsite.SuspendLayout();
+            this.grp_WRTOffsiteTagline.SuspendLayout();
             // 
-            // tab1
+            // tab_WRTOffsite
             // 
-            this.tab1.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
-            this.tab1.Groups.Add(this.group1);
-            this.tab1.Label = "TabAddIns";
-            this.tab1.Name = "tab1";
+            this.tab_WRTOffsite.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
+            this.tab_WRTOffsite.ControlId.OfficeId = "TabNewMailMessage";
+            this.tab_WRTOffsite.Groups.Add(this.grp_WRTOffsiteTagline);
+            this.tab_WRTOffsite.Label = "TabNewMailMessage";
+            this.tab_WRTOffsite.Name = "tab_WRTOffsite";
             // 
-            // group1
+            // grp_WRTOffsiteTagline
             // 
-            this.group1.Items.Add(this.ActiveAllMessages);
-            this.group1.Items.Add(this.ActiveThisMessage);
-            this.group1.Label = "group1";
-            this.group1.Name = "group1";
+            this.grp_WRTOffsiteTagline.Items.Add(this.ActiveAllMessages);
+            this.grp_WRTOffsiteTagline.Items.Add(this.ActiveThisMessage);
+            this.grp_WRTOffsiteTagline.Label = "WRT Offsite Tagline";
+            this.grp_WRTOffsiteTagline.Name = "grp_WRTOffsiteTagline";
             // 
             // ActiveAllMessages
             // 
@@ -71,19 +72,19 @@
             // 
             this.Name = "WRTOffsiteTaglineAddInRibbon";
             this.RibbonType = "Microsoft.Outlook.Mail.Compose";
-            this.Tabs.Add(this.tab1);
+            this.Tabs.Add(this.tab_WRTOffsite);
             this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.Ribbon1_Load);
-            this.tab1.ResumeLayout(false);
-            this.tab1.PerformLayout();
-            this.group1.ResumeLayout(false);
-            this.group1.PerformLayout();
+            this.tab_WRTOffsite.ResumeLayout(false);
+            this.tab_WRTOffsite.PerformLayout();
+            this.grp_WRTOffsiteTagline.ResumeLayout(false);
+            this.grp_WRTOffsiteTagline.PerformLayout();
 
         }
 
         #endregion
 
-        internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
-        internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonTab tab_WRTOffsite;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup grp_WRTOffsiteTagline;
         internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton ActiveAllMessages;
         internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton ActiveThisMessage;
     }
